@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="js/react.js"></script>
+    <script src="js/JSXTransformer.js"></script>
+    <link rel="stylesheet" tpe="text/css" href="style.css"/>
+  </head>
+  <body>
+    <div id="container"></div>
+    <script type="text/jsx">
+     var Toast = React.createClass({
+  getInitialState: function() {
+    var  messageValue=this.props.message?this.props.message:"成功";
+    var  durationValue=this.props.message?this.props.duration:2000;
+    return {isShow: this.props.isShow,message:messageValue,duration:durationValue};
+  },
+ 
+componentDidMount:function(){
+var self=this;
+setTimeout(function() {
+     self.setState({'isShow': "false"})
+ }, this.state.duration);
+},
+  render: function() {
+     
+     console.log(this.state.isShow);
+     var className= this.state.isShow==="true"?"toast-inner animated bounceIn":"toast-inner animated bounceOut";
+
+var divStyle={backgroundColor:"white",boxShadow:"0 0 45px rgba(0,0,0,.35)"};
+    return (
+      <div class="g-toast">
+             <div className={className} style={divStyle} >{this.state.message}</div>
+        </div> 
+    );
+  }
+});
+
+      React.render(
+          <Toast isShow="true" message="提示" duration="2000" />,
+        document.getElementById('container')
+      );
+    </script>
+  </body>
+</html>
