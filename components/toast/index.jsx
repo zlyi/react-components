@@ -25,7 +25,8 @@ componentWillReceiveProps:function(nextProps){
  this.closeToast();
 },
   render: function() { 
-    var isShow=this.state.isShow; 
+    var isShow=this.state.isShow;
+    console.log(isShow);
      var className="";
      if(isShow==null)
      {
