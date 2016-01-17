@@ -1,5 +1,8 @@
 var React = require('react');
 
+var classNames = require('classnames');
+
+
     var Radio = React.createClass({
   getInitialState: function() {
     return {isSelected: this.props.isSelected};
@@ -11,7 +14,8 @@ var React = require('react');
   },
   render: function() {
      
-     var className= this.state.isSelected==true?"g-radio radio-current":"g-radio";
+     var className=classNames('g-radio', { "radio-current" : this.state.isSelected}); 
+ 
 
      return (
       <span className={className} onClick={this.handleOnClick}></span>

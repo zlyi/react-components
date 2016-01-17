@@ -1,5 +1,7 @@
 var React = require('react');
 
+var classNames = require('classnames');
+
  var Modal = React.createClass({
  
   getInitialState: function() { 
@@ -31,7 +33,8 @@ componentWillReceiveProps:function(nextProps){
        className="dn";
      }else
      { 
-       className= isShow ?"c-cover fadeInUp animated":"c-cover fadeOutDown animated";
+           className=classNames('c-cover  animated', { fadeInUp: isShow, fadeOutDown: !isShow }); // => 'foo bar baz quux' 
+ 
     }
     var maskClass=!isShow?"dn":"g-mask";
 

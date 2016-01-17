@@ -1,5 +1,8 @@
 var React = require('react');
 
+var classNames = require('classnames');
+
+
  var Toast = React.createClass({
  
   getInitialState: function() { 
@@ -27,7 +30,9 @@ componentWillReceiveProps:function(nextProps){
 
      }else
      { 
-       className= isShow ?"c-alert animated bounceIn":"c-alert animated bounceOut";
+
+     className=  classNames('c-alert animated ', { bounceIn: isShow, bounceOut: !isShow }); // => 'foo bar baz quux' 
+
     }
 
 var divStyle={backgroundColor:"white",boxShadow:"0 0 45px rgba(0,0,0,.35)"};
